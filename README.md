@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 ADmyBRAND AI Suite – SaaS Landing Page
 
-## Getting Started
+A modern, responsive, and animated single-page landing website for the **ADmyBRAND AI Suite**, built with **Next.js 14 App Router**, **Tailwind CSS**, and **Framer Motion**. This marketing page showcases product features, testimonials, pricing, FAQs, and more — all wrapped in a sleek **glassmorphism** aesthetic.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## ✨ Features
+
+- ⚡️ Blazing fast performance with Next.js 14 (App Router)
+- 🎨 Beautiful glassmorphism design with soft gradients & blur effects
+- 📱 Fully responsive across all screen sizes
+- 🧠 Animated UI using Framer Motion (scroll & hover interactions)
+- 🧩 Modular & reusable component system (shadcn/ui)
+- 🌈 Custom fonts, icons, gradients & Tailwind CSS v4
+- ✅ Accessible and semantic HTML structure
+
+---
+
+## 🏗️ Project Structure
+
+```text
+├── src/
+│   ├── app/
+│   │   ├── (marketing)/
+│   │   │   ├── layout.tsx      # Root layout for the marketing page (sets font, base styles)
+│   │   │   └── page.tsx        # Main page, assembles all sections
+│   │   └── globals.css         # Global styles and Tailwind CSS configuration
+│   ├── components/
+│   │   ├── common/             # Reusable components used across multiple sections
+│   │   │   ├── Accordion.tsx
+│   │   │   ├── InteractivePricingCalculator.tsx
+│   │   │   ├── Button.tsx
+│   │   │   ├── Card.tsx
+│   │   │   ├── FeatureIcon.tsx
+│   │   │   ├── Input.tsx
+│   │   │   ├── Modal.tsx
+│   │   │   ├── PricingCard.tsx
+│   │   │   └── TestimonialCard.tsx
+│   │   ├── sections/           # Major page sections
+│   │   │   ├── Contact.tsx
+│   │   │   ├── FAQ.tsx
+│   │   │   ├── Features.tsx
+│   │   │   ├── Footer.tsx
+│   │   │   ├── Hero.tsx
+│   │   │   ├── Pricing.tsx
+│   │   │   └── Testimonials.tsx
+│   │   └── ui/   
+│   │       └── button.tsx      # Base UI components from shadcn/ui (e.g., button.tsx)
+│   ├── constants/ 
+│   │   └── index.tsx           # Centralized constants (images, logos, icons)
+│   └── lib/
+│       └── utils.ts            # Utility functions (e.g., cn for classnames)
+└── components.json             # Configuration file for shadcn/ui
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🔧 Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Technology     | Description                                 |
+|----------------|---------------------------------------------|
+| **Next.js**    | React framework with App Router              |
+| **TypeScript** | Type-safe component and prop definitions     |
+| **Tailwind CSS** | Utility-first CSS for rapid styling        |
+| **Framer Motion** | Declarative animations and transitions   |
+| **shadcn/ui**  | UI primitives with design flexibility        |
+| **styled-jsx** | Component-scoped animations & keyframes      |
+| **Lucide React** | Icon set for UI & navigation               |
+| **IBM Plex Sans** | Modern font loaded via next/font          |
 
-## Learn More
+---
+📸 Screenshots
+🖥 Desktop View
+<img src="public/screenshots/desktop-hero.jpg" width="100%" alt="Hero section" /> <img src="public/screenshots/desktop-testimonials.jpg" width="100%" alt="Testimonials" />
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📦 Installation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+git clone https://github.com/your-username/admybrand-landing.git
+cd admybrand-landing
+npm install         # or npm install / yarn install
+npm run dev         # starts the dev server on localhost:3000
