@@ -17,6 +17,8 @@ A modern, responsive, and animated single-page landing website for the **ADmyBRA
 - 🧩 Modular & reusable component system (shadcn/ui)
 - 🌈 Custom fonts, icons, gradients & Tailwind CSS v4
 - ✅ Accessible and semantic HTML structure
+- Interactive Pricing Calculator
+- Framer Motion
 
 ---
 
