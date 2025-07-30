@@ -40,7 +40,7 @@ export default function Hero() {
 				}}
 			>
 				<div className="max-w-7xl mx-auto flex items-center justify-between w-full px-6 py-3 pointer-events-auto">
-					<span className="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-[#659999] via-[#222] to-[#f4791f] bg-clip-text text-transparent drop-shadow-lg">
+					<span className="text-3xl font-extrabold tracking-tight bg-gradient-to-r from-[#659999] via-[#222] to-[#f4791f] bg-clip-text text-transparent drop-shadow-lg">
 						AdMyBrand
 					</span>
 					<div className="flex-1 flex justify-center">

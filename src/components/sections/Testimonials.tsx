@@ -139,7 +139,7 @@ export default function Testimonials() {
                   key={t.name + t.company}
                   className="w-full sm:w-96 flex-shrink-0"
                 >
-                  <TestimonialCard {...t} />
+                  <TestimonialCard {...t} avatar={t.avatar.src} />
                 </div>
               ))}
             </motion.div>
