@@ -2,6 +2,7 @@
 import React from "react";
 import PricingCard from "../common/PricingCard";
 import { motion } from "framer-motion";
+import InteractivePricingCalculator from "../common/InteractivePricingCalculator";
 
 const plans = [
 	{
@@ -181,6 +182,7 @@ export default function Pricing() {
 					))}
 				</motion.div>
 			</div>
+			<InteractivePricingCalculator />
 			<style jsx>{`
 				.animate-bounce {
 					animation: bounce 1.2s infinite alternate;
