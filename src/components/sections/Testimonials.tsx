@@ -74,11 +74,17 @@ export default function Testimonials() {
   };
 
   useEffect(() => {
-    if (paused || !canNavigate) return;
+    if (paused || !canNavigate) {
+      return;
+    }
     timeoutRef.current = setTimeout(() => {
       setCurrent((prev) => (prev + slidesToShow) % total);
     }, 5000);
-    return () => timeoutRef.current && clearTimeout(timeoutRef.current);
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
   }, [current, paused, slidesToShow, total]);
 
   const goLeft = () => {
