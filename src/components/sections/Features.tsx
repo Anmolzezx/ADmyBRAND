@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const features = [
 	{
@@ -101,13 +102,35 @@ const features = [
 	},
 ];
 
+// Animation variants for cards
+import type { Variants } from "framer-motion";
+
+const cardVariants: Variants = {
+  offscreen: { opacity: 0, y: 60, scale: 0.95 },
+  onscreen: {
+	opacity: 1,
+	y: 0,
+	scale: 1,
+	transition: {
+	  type: "spring" as const,
+	  bounce: 0.28,
+	  duration: 0.7
+	}
+  }
+};
+
 export default function Features() {
 	return (
 		<section id="features" className="wrapper py-24 flex flex-col items-center relative overflow-x-clip">
 			{/* Animated Gradient Glow */}
 			<div className="absolute left-1/2 top-0 -translate-x-1/2 -z-10 w-[600px] h-[300px] bg-gradient-to-br from-[#659999]/30 via-[#f4791f]/30 to-[#fff]/0 blur-3xl rounded-full opacity-80 animate-glow" />
-			<h2 className="h2-bold text-center mb-12 flex items-center gap-4 relative z-10 text-[2.2rem] md:text-4xl font-extrabold tracking-tight"
+			<motion.h2
+				className="h2-bold text-center mb-12 flex items-center gap-4 relative z-10 text-[2.2rem] md:text-4xl font-extrabold tracking-tight"
 				style={{ letterSpacing: "0.04em" }}
+				initial={{ opacity: 0, y: 40, scale: 0.98 }}
+				whileInView={{ opacity: 1, y: 0, scale: 1 }}
+				viewport={{ once: true, amount: 0.7 }}
+				transition={{ duration: 0.7, ease: [0.4, 2, 0.6, 1] }}
 			>
 				<span className="relative flex items-center">
 					{/* Animated SVG Glow */}
@@ -131,10 +154,15 @@ export default function Features() {
 				>
 					Features
 				</span>
-			</h2>
-			<div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3 w-full">
+			</motion.h2>
+			<motion.div
+				className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3 w-full"
+				initial="offscreen"
+				whileInView="onscreen"
+				viewport={{ once: true, amount: 0.2 }}
+			>
 				{features.map((f, i) => (
-					<div
+					<motion.div
 						key={i}
 						className="group flex flex-col items-center text-center p-12 rounded-3xl shadow-2xl bg-gradient-to-br from-[#eaf4f4] to-[#fff5ec] border border-[#e0e0e0] backdrop-blur-lg transition-all duration-500 hover:scale-105 hover:shadow-[0_16px_48px_0_#65999944,0_2px_8px_0_#f4791f22] relative overflow-visible animate-fade-in"
 						style={{
@@ -142,6 +170,8 @@ export default function Features() {
 							boxShadow: "0 8px 32px 0 #65999922, 0 2px 8px 0 #f4791f22",
 							background: "linear-gradient(135deg, #eaf4f4 60%, #fff5ec 100%)"
 						}}
+						variants={cardVariants}
+						transition={{ delay: i * 0.08 }}
 					>
 						{/* Animated Icon with Glow and floating accent */}
 						<div className="mb-8 transition-transform duration-500 group-hover:scale-125 group-hover:-rotate-6 relative">
@@ -191,9 +221,9 @@ export default function Features() {
 						{/* Removed Decorative bottom-right accent */}
 						{/* 3D card shadow */}
 						<span className="absolute left-1/2 -bottom-6 w-40 h-8 rounded-full bg-[#659999]/10 blur-2xl opacity-60 pointer-events-none -translate-x-1/2" />
-					</div>
+					</motion.div>
 				))}
-			</div>
+			</motion.div>
 			{/* Subtle section divider */}
 			<div className="w-32 h-1 mt-20 bg-gradient-to-r from-[#65999933] via-[#f4791f22] to-[#65999933] rounded-full opacity-70 mx-auto" />
 			<style jsx>{`
@@ -241,5 +271,6 @@ export default function Features() {
 					filter: drop-shadow(0 4px 16px #635BFF55);
 				}
 		`}</style>
-	</section>
-)}
+		</section>
+	)
+}

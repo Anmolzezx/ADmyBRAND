@@ -4,7 +4,15 @@ import {icons, logos} from "../../../constants";
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-[#F6F5FF]/70 backdrop-blur-md border-t border-[#E0E0E0] py-10 px-6 md:px-12 mt-24">
+    <footer
+      className="w-full border-t border-[#E0E0E0] py-10 px-6 md:px-12 mt-0 shadow-[0_8px_32px_0_rgba(31,38,135,0.10)] rounded-t-2xl"
+      style={{
+        marginTop: 0,
+        background: "linear-gradient(135deg, #F6F5FF 0%, #e0e7ff 60%, #f3e7e9 100%)",
+        boxShadow: "0 8px 32px 0 rgba(31,38,135,0.10), 0 2px 8px 0 rgba(244,121,31,0.08)",
+        backdropFilter: "blur(8px)"
+      }}
+    >
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-y-8">
 
         {/* Logo and Brand */}
@@ -22,16 +30,33 @@ export default function Footer() {
         </div>
 
         {/* Navigation */}
-        <nav className="flex flex-wrap justify-center gap-6 text-sm font-medium text-[#2C2560]">
-          <a href="#features" className="hover:text-[#635BFF] transition-colors">Features</a>
-          <a href="#pricing" className="hover:text-[#635BFF] transition-colors">Pricing</a>
-          <a href="#faq" className="hover:text-[#635BFF] transition-colors">FAQ</a>
-          <a href="#contact" className="hover:text-[#635BFF] transition-colors">Contact</a>
+        <nav className="flex flex-wrap justify-center gap-3 text-sm font-medium text-[#2C2560]">
+          <a
+            href="#features"
+            className="hover:text-[#635BFF] transition-colors"
+            aria-current="page"
+          >
+            Features
+          </a>
+          <span aria-hidden="true" className="mx-1 text-[#B0AEE0]">•</span>
+          <a href="#pricing" className="hover:text-[#635BFF] transition-colors">
+            Pricing
+          </a>
+          <span aria-hidden="true" className="mx-1 text-[#B0AEE0]">•</span>
+          <a href="#faq" className="hover:text-[#635BFF] transition-colors">
+            FAQ
+          </a>
+          <span aria-hidden="true" className="mx-1 text-[#B0AEE0]">•</span>
+          <a href="#contact" className="hover:text-[#635BFF] transition-colors">
+            Contact
+          </a>
+          <span aria-hidden="true" className="mx-1 text-[#B0AEE0]">•</span>
           <a
             href="https://admybrand.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#635BFF] hover:underline"
+            className="hover:underline"
+            style={{ color: "#f4791f" }}
           >
             Main Site
           </a>

@@ -1,6 +1,10 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 import Accordion from "../common/Accordion";
+import { icons } from "lucide-react";
+import { images } from "../../../constants";
+import { motion } from "framer-motion";
 
 const faqs = [
 	{
@@ -32,41 +36,45 @@ export default function FAQ() {
 		<section
 			className="wrapper py-24 flex flex-col items-center"
 			id="faq"
+			style={{
+				borderRadius: "2rem",
+			}}
 		>
-			<h2 className="h2-bold text-center mb-10 flex items-center gap-3">
-				<svg
-					width={32}
-					height={32}
-					fill="none"
-					viewBox="0 0 40 40"
-				>
-					<circle
-						cx={20}
-						cy={20}
-						r={18}
-						stroke="#635BFF"
-						strokeWidth={4}
-					/>
-					<text
-						x="50%"
-						y="60%"
-						textAnchor="middle"
-						fill="#635BFF"
-						fontSize="18"
-						fontWeight="bold"
-						dy=".3em"
-					>
-						?
-					</text>
-				</svg>
-				Frequently Asked Questions
-			</h2>
-			<div className="w-full max-w-2xl animate-fade-in">
+			<motion.h2
+				className="h2-bold text-center mb-10 flex items-center gap-3 font-extrabold text-4xl md:text-5xl"
+				style={{
+					background: "linear-gradient(90deg, #635BFF 0%, #f4791f 100%)",
+					WebkitBackgroundClip: "text",
+					WebkitTextFillColor: "transparent",
+					textShadow: "0 2px 12px rgba(99,91,255,0.12)",
+					fontWeight: 800,
+				}}
+				initial={{ opacity: 0, y: 40 }}
+				whileInView={{ opacity: 1, y: 0 }}
+				viewport={{ once: true, amount: 0.7 }}
+				transition={{ duration: 0.7, ease: [0.4, 2, 0.6, 1] }}
+			>
+				<Image
+					src={images.faq}
+					alt="Question Mark"
+					width={44}
+					height={44}
+					style={{ flexShrink: 0 }}
+				/>
+				FAQs
+			</motion.h2>
+			<motion.div
+				className="w-full max-w-2xl animate-fade-in"
+				initial={{ opacity: 0, y: 40 }}
+				whileInView={{ opacity: 1, y: 0 }}
+				viewport={{ once: true, amount: 0.4 }}
+				transition={{ duration: 0.7, delay: 0.15, ease: [0.4, 2, 0.6, 1] }}
+			>
 				<Accordion
 					items={faqs}
 					className="max-w-2xl mx-auto"
 				/>
-			</div>
+			</motion.div>
 			<style jsx>{`
 				.animate-fade-in {
 					animation: fade-in 0.7s cubic-bezier(0.4, 2, 0.6, 1) both;

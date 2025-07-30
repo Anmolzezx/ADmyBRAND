@@ -21,27 +21,27 @@ export default function PricingCard({ title, price, features, popular }: Pricing
   return (
     <div
       className={cn(
-        "bg-white rounded-b-3xl shadow p-8 flex flex-col items-center text-center border-2 transition-transform duration-300 hover:scale-105 hover:shadow-2xl relative group",
+        "bg-white rounded-xl shadow p-6 flex flex-col items-center text-center border-2 transition-transform duration-300 hover:scale-105 hover:shadow-2xl relative group",
         popular ? "border-[#f4791f]" : "border-[#E0E0E0]"
       )}
-      style={{ minHeight: 440 }}
+      style={{ minHeight: 360, maxWidth: 320, width: "100%" }}
     >
       {/* ...icon and badge handled in parent... */}
       {/* Removed plan title from inside the card */}
       <div
-        className="p-24-bold mb-4 font-extrabold"
+        className="p-24-bold mb-3 font-extrabold"
         style={{
           color: title === "Pro" || title === "Enterprise" ? "#f4791f" : "#659999",
-          fontSize: "2rem",
+          fontSize: "1.5rem",
           letterSpacing: "0.03em"
         }}
       >
         {price}
       </div>
-      <ul className="mb-8 space-y-3">
+      <ul className="mb-6 space-y-2">
         {features.map((f, i) => (
-          <li key={i} className="p-16-regular flex items-center gap-2" style={{ color: "#6D6D6D" }}>
-            <svg width={18} height={18} fill="none" viewBox="0 0 20 20">
+          <li key={i} className="p-16-regular flex items-center gap-2" style={{ color: "#6D6D6D", fontSize: "0.97rem" }}>
+            <svg width={16} height={16} fill="none" viewBox="0 0 20 20">
               <circle cx={10} cy={10} r={9} stroke="#f4791f" strokeWidth={2} fill="#fff5ec" />
               <path d="M7 10l2 2 4-4" stroke="#f4791f" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
             </svg>
@@ -51,7 +51,7 @@ export default function PricingCard({ title, price, features, popular }: Pricing
       </ul>
       <button
         className={cn(
-          "w-full py-2 px-4 rounded-md font-semibold transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg",
+          "w-full py-2 px-4 rounded-md font-semibold transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg text-sm",
           popular
             ? "bg-[#f4791f] text-white hover:bg-[#d96a17]"
             : "bg-[#fff5ec] text-[#222] hover:bg-[#ffe7d1]"
