@@ -9,23 +9,41 @@ type PricingCardProps = {
 };
 
 export default function PricingCard({ title, price, features, popular }: PricingCardProps) {
+  // Highlight color for each plan
+  let titleColor = "#659999";
+  if (title === "Pro") titleColor = "#f4791f";
+  if (title === "Enterprise") titleColor = "#f4791f";
+
+  let priceColor = "#659999";
+  if (title === "Pro") priceColor = "#f4791f";
+  if (title === "Enterprise") priceColor = "#f4791f";
+
   return (
     <div
       className={cn(
-        "bg-white rounded-xl shadow p-8 flex flex-col items-center text-center border-2 transition-transform duration-300 hover:scale-105 hover:shadow-2xl relative group",
-        popular ? "border-[#635BFF]" : "border-[#E0E0E0]"
+        "bg-white rounded-b-3xl shadow p-8 flex flex-col items-center text-center border-2 transition-transform duration-300 hover:scale-105 hover:shadow-2xl relative group",
+        popular ? "border-[#f4791f]" : "border-[#E0E0E0]"
       )}
       style={{ minHeight: 440 }}
     >
       {/* ...icon and badge handled in parent... */}
-      <h3 className="h3-bold mb-2 mt-2" style={{ color: "#2C2560" }}>{title}</h3>
-      <div className="p-24-bold mb-4" style={{ color: "#2C2560" }}>{price}</div>
+      {/* Removed plan title from inside the card */}
+      <div
+        className="p-24-bold mb-4 font-extrabold"
+        style={{
+          color: title === "Pro" || title === "Enterprise" ? "#f4791f" : "#659999",
+          fontSize: "2rem",
+          letterSpacing: "0.03em"
+        }}
+      >
+        {price}
+      </div>
       <ul className="mb-8 space-y-3">
         {features.map((f, i) => (
           <li key={i} className="p-16-regular flex items-center gap-2" style={{ color: "#6D6D6D" }}>
             <svg width={18} height={18} fill="none" viewBox="0 0 20 20">
-              <circle cx={10} cy={10} r={9} stroke="#635BFF" strokeWidth={2} fill="#EDEBFF" />
-              <path d="M7 10l2 2 4-4" stroke="#635BFF" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
+              <circle cx={10} cy={10} r={9} stroke="#f4791f" strokeWidth={2} fill="#fff5ec" />
+              <path d="M7 10l2 2 4-4" stroke="#f4791f" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
             </svg>
             {f}
           </li>
@@ -35,8 +53,8 @@ export default function PricingCard({ title, price, features, popular }: Pricing
         className={cn(
           "w-full py-2 px-4 rounded-md font-semibold transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg",
           popular
-            ? "bg-[#635BFF] text-white hover:bg-[#4D47D6]"
-            : "bg-[#E5E5F8] text-[#2C2560] hover:bg-[#DCD9F9]"
+            ? "bg-[#f4791f] text-white hover:bg-[#d96a17]"
+            : "bg-[#fff5ec] text-[#222] hover:bg-[#ffe7d1]"
         )}
       >
         Choose Plan

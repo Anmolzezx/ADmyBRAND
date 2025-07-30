@@ -15,10 +15,11 @@ const plans = [
 			"Up to 3 campaigns",
 			"Standard templates",
 		],
-		icon: "https://cdn.jsdelivr.net/gh/feathericons/feather/icons/star.svg",
+		icon: "https://cdn.jsdelivr.net/gh/feathericons/feather/icons/user.svg", // user icon for Starter
 		badge: "Free Forever",
-		accent: "from-[#EDEBFF] to-[#F9F8FF]",
+		accent: "from-[#eaf4f4] to-[#fff5ec]",
 		popular: false,
+		bg: "", // Remove gradient for Starter, use plain white
 	},
 	{
 		title: "Pro",
@@ -33,10 +34,11 @@ const plans = [
 			"Premium templates",
 			"Integrations CRM and Slack ",
 		],
-		icon: "https://cdn.jsdelivr.net/gh/feathericons/feather/icons/award.svg",
+		icon: "https://cdn.jsdelivr.net/gh/feathericons/feather/icons/star.svg", // star icon for Pro
 		badge: "Best Value",
-		accent: "from-[#DCD9F9] to-[#EDEBFF]",
+		accent: "from-[#f4791f] to-[#ffe7d1]",
 		popular: true,
+		bg: "bg-gradient-to-br from-[#fff5ec] to-[#ffe7d1]",
 	},
 	{
 		title: "Enterprise",
@@ -51,10 +53,11 @@ const plans = [
 			"White-labeling",
 			"API access",
 		],
-		icon: "https://cdn.jsdelivr.net/gh/feathericons/feather/icons/briefcase.svg",
+		icon: "https://cdn.jsdelivr.net/gh/feathericons/feather/icons/briefcase.svg", // briefcase for Enterprise
 		badge: "Custom",
-		accent: "from-[#F6F5FF] to-[#EDEBFF]",
+		accent: "from-[#f6f5ff] to-[#eaf4f4]",
 		popular: false,
+		bg: "bg-gradient-to-br from-[#f6f5ff] to-[#eaf4f4]",
 	},
 ];
 
@@ -94,13 +97,17 @@ export default function Pricing() {
 					{plans.map((plan, i) => (
 						<div
 							key={i}
-							className={`relative group transition-all duration-300 ${
+							className={`relative group transition-all duration-300 border ${plan.bg} ${
 								plan.popular
-									? "z-10 scale-105 shadow-2xl bg-gradient-to-br from-[#EDEBFF] to-[#F9F8FF] border-[#635BFF]"
-									: "scale-100 shadow-lg bg-white border-[#E0E0E0]"
-							} hover:scale-105 hover:shadow-2xl`}
+									? "z-10 scale-105 shadow-2xl border-[#f4791f]"
+									: "scale-100 shadow-lg border-[#E0E0E0]"
+							} hover:scale-105 hover:shadow-2xl flex flex-col h-full`}
 							style={{
-								transition: "box-shadow 0.3s, transform 0.3s",
+								// Ensure all cards have the same height and alignment
+								display: "flex",
+								flexDirection: "column",
+								justifyContent: "flex-end",
+								height: "100%",
 							}}
 						>
 							{/* Plan Icon */}
@@ -113,30 +120,51 @@ export default function Pricing() {
 										height={32}
 										style={{
 											filter: plan.popular
-												? "invert(41%) sepia(97%) saturate(7496%) hue-rotate(241deg) brightness(90%) contrast(101%)"
+												? "invert(54%) sepia(92%) saturate(7496%) hue-rotate(10deg) brightness(101%) contrast(101%)"
 												: "none",
 										}}
 									/>
 								</span>
+							</div>
+							{/* Highlighted Plan Title */}
+							<div className="flex justify-center mb-1">
+								{plan.title === "Starter" && (
+									<span className="text-lg md:text-xl font-extrabold tracking-wide text-[#659999] uppercase drop-shadow-sm" style={{ letterSpacing: "0.06em" }}>
+										Starter
+									</span>
+								)}
+								{plan.title === "Pro" && (
+									<span className="text-lg md:text-xl font-extrabold tracking-wide text-[#f4791f] uppercase drop-shadow-sm" style={{ letterSpacing: "0.06em" }}>
+										Pro
+									</span>
+								)}
+								{plan.title === "Enterprise" && (
+									<span className="text-lg md:text-xl font-extrabold tracking-wide text-[#f4791f] uppercase drop-shadow-sm" style={{ letterSpacing: "0.06em" }}>
+										Enterprise
+									</span>
+								)}
 							</div>
 							{/* Badge */}
 							<div className="flex justify-center mb-2">
 								<span
 									className={`${
 										plan.popular
-											? "bg-[#635BFF] text-white animate-bounce"
-											: "bg-[#EDEBFF] text-[#635BFF]"
+											? "bg-[#f4791f] text-white animate-bounce"
+											: "bg-[#FFF5EC] text-[#f4791f]"
 									} px-3 py-1 rounded-full text-xs font-semibold shadow`}
 								>
 									{plan.badge}
 								</span>
 							</div>
-							<PricingCard
-								title={plan.title}
-								price={plan.price}
-								features={plan.features}
-								popular={plan.popular}
-							/>
+							{/* Pricing Card */}
+							<div className="flex-1 flex flex-col justify-end">
+								<PricingCard
+									title={plan.title}
+									price={plan.price}
+									features={plan.features}
+									popular={plan.popular}
+								/>
+							</div>
 						</div>
 					))}
 				</div>
