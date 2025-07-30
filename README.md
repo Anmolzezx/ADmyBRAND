@@ -3,6 +3,10 @@
 A modern, responsive, and animated single-page landing website for the **ADmyBRAND AI Suite**, built with **Next.js 14 App Router**, **Tailwind CSS**, and **Framer Motion**. This marketing page showcases product features, testimonials, pricing, FAQs, and more — all wrapped in a sleek **glassmorphism** aesthetic.
 
 ---
+## 🚀 Live Demo
+👉 [Visit Live Site](https://myaiadmybrand.netlify.app/)
+
+---
 
 ## ✨ Features
 
@@ -68,11 +72,7 @@ A modern, responsive, and animated single-page landing website for the **ADmyBRA
 | **IBM Plex Sans** | Modern font loaded via next/font          |
 
 ---
-📸 Screenshots
-🖥 Desktop View
-<img src="public/screenshots/desktop-hero.jpg" width="100%" alt="Hero section" /> <img src="public/screenshots/desktop-testimonials.jpg" width="100%" alt="Testimonials" />
 
----
 
 ## 📦 Installation
 
