@@ -15,18 +15,20 @@ export default function PricingCard({ title, price, features, popular }: Pricing
         "bg-white rounded-xl shadow p-8 flex flex-col items-center text-center border-2 transition-transform duration-300 hover:scale-105 hover:shadow-2xl relative group",
         popular ? "border-[#635BFF]" : "border-[#E0E0E0]"
       )}
-      style={{ minHeight: 400 }}
+      style={{ minHeight: 440 }}
     >
-      {popular && (
-        <span className="mb-2 px-3 py-1 bg-[#EDEBFF] text-[#635BFF] rounded-full text-xs font-semibold animate-pulse absolute -top-6 left-1/2 -translate-x-1/2 shadow-lg z-10">
-          Most Popular
-        </span>
-      )}
-      <h3 className="h3-bold mb-2" style={{ color: "#2C2560" }}>{title}</h3>
+      {/* ...icon and badge handled in parent... */}
+      <h3 className="h3-bold mb-2 mt-2" style={{ color: "#2C2560" }}>{title}</h3>
       <div className="p-24-bold mb-4" style={{ color: "#2C2560" }}>{price}</div>
-      <ul className="mb-6 space-y-2">
+      <ul className="mb-8 space-y-3">
         {features.map((f, i) => (
-          <li key={i} className="p-16-regular" style={{ color: "#6D6D6D" }}>{f}</li>
+          <li key={i} className="p-16-regular flex items-center gap-2" style={{ color: "#6D6D6D" }}>
+            <svg width={18} height={18} fill="none" viewBox="0 0 20 20">
+              <circle cx={10} cy={10} r={9} stroke="#635BFF" strokeWidth={2} fill="#EDEBFF" />
+              <path d="M7 10l2 2 4-4" stroke="#635BFF" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            {f}
+          </li>
         ))}
       </ul>
       <button

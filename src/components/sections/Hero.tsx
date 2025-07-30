@@ -7,15 +7,58 @@ import Image from "next/image"
 export default function Hero() {
   return (
     <>
-      {/* Glassy Navbar */}
-      <nav className="fixed top-0 left-0 w-full z-50 bg-white/10 backdrop-blur-md shadow-lg border-b border-[#E0E0E0]">
-        <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-3">
-          <span className="text-2xl font-bold" style={{ color: "#2C2560" }}>AdMyBrand</span>
-          <div className="flex gap-3">
-            <Button variant="ghost" className="text-[#2C2560] hover:bg-[#F6F5FF] rounded-full px-4 py-2">Home</Button>
-            <Button variant="ghost" className="text-[#2C2560] hover:bg-[#F6F5FF] rounded-full px-4 py-2">Features</Button>
-            <Button variant="ghost" className="text-[#2C2560] hover:bg-[#F6F5FF] rounded-full px-4 py-2">Pricing</Button>
-            <Button variant="ghost" className="text-[#2C2560] hover:bg-[#F6F5FF] rounded-full px-4 py-2">Contact</Button>
+      {/* Floating Glassmorphic Navbar with Glow */}
+      <div className="fixed top-0 left-0 w-full flex justify-center z-[60] pointer-events-none">
+        {/* Blurred Glow Behind Navbar */}
+        <div className="absolute top-6 left-1/2 -translate-x-1/2 w-[90vw] md:w-[60vw] h-24 rounded-3xl bg-gradient-to-r from-[#635BFF66] via-[#A18AFF33] to-[#00E0FF33] blur-2xl opacity-70 pointer-events-none"></div>
+      </div>
+      <nav
+        className="fixed top-6 left-1/2 -translate-x-1/2 w-[92vw] md:w-[60vw] z-[70]
+        bg-white/60 backdrop-blur-2xl border border-[#E5E5F8]/80
+        rounded-3xl shadow-[0_8px_32px_0_rgba(99,91,255,0.18),0_1.5px_8px_0_rgba(99,91,255,0.10)]
+        ring-1 ring-[#635BFF22]
+        transition-all duration-300
+        flex items-center"
+        style={{
+          boxShadow:
+            "0 8px 32px 0 rgba(99,91,255,0.18), 0 1.5px 8px 0 rgba(99,91,255,0.10), 0 0 0 2px #fff8",
+          border: "1.5px solid #E5E5F8",
+          background: "linear-gradient(90deg,rgba(255,255,255,0.85) 60%,rgba(163,148,255,0.13) 100%)"
+        }}
+      >
+        <div className="max-w-6xl mx-auto flex items-center justify-between w-full px-6 py-3 pointer-events-auto">
+          <span className="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-[#635BFF] via-[#2C2560] to-[#00E0FF] bg-clip-text text-transparent drop-shadow-lg">
+            AdMyBrand
+          </span>
+          <div className="flex gap-2 md:gap-3">
+            <Button
+              asChild
+              variant="ghost"
+              className="text-[#2C2560] hover:bg-[#F6F5FF] hover:text-[#635BFF] active:bg-[#E5E5F8] rounded-full px-4 py-2 font-semibold transition-all duration-150 shadow-none"
+            >
+              <a href="#features">Features</a>
+            </Button>
+            <Button
+              asChild
+              variant="ghost"
+              className="text-[#2C2560] hover:bg-[#F6F5FF] hover:text-[#635BFF] active:bg-[#E5E5F8] rounded-full px-4 py-2 font-semibold transition-all duration-150 shadow-none"
+            >
+              <a href="#pricing">Pricing</a>
+            </Button>
+            <Button
+              asChild
+              variant="ghost"
+              className="text-[#2C2560] hover:bg-[#F6F5FF] hover:text-[#635BFF] active:bg-[#E5E5F8] rounded-full px-4 py-2 font-semibold transition-all duration-150 shadow-none"
+            >
+              <a href="#faq">FAQ</a>
+            </Button>
+            <Button
+              asChild
+              variant="ghost"
+              className="text-[#2C2560] hover:bg-[#F6F5FF] hover:text-[#635BFF] active:bg-[#E5E5F8] rounded-full px-4 py-2 font-semibold transition-all duration-150 shadow-none"
+            >
+              <a href="#contact">Contact</a>
+            </Button>
           </div>
         </div>
       </nav>
