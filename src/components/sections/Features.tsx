@@ -225,7 +225,7 @@ export default function Features() {
 				))}
 			</motion.div>
 			{/* Subtle section divider */}
-			<div className="w-32 h-1 mt-20 bg-gradient-to-r from-[#65999933] via-[#f4791f22] to-[#65999933] rounded-full opacity-70 mx-auto" />
+			{/* <div className="w-32 h-1 mt-20 bg-gradient-to-r from-[#65999933] via-[#f4791f22] to-[#65999933] rounded-full opacity-70 mx-auto" /> */}
 			<style jsx>{`
 				.animate-fade-in {
 					animation: fade-in 0.9s cubic-bezier(.4,2,.6,1) both;
